@@ -8,9 +8,13 @@
         margin: 0;
         overflow: hidden;
       }
+      canvas {
+        display: block;
+      }
     </style>
   </head>
   <body>
+    <canvas></canvas>
     <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.min.js"></script>
     <script>
       // Create a Three.js scene
@@ -49,9 +53,8 @@
       scene.add(mesh);
 
       // Create a renderer
-      const renderer = new THREE.WebGLRenderer();
+      const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('canvas') });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
 
       // Render the scene
       function animate() {
